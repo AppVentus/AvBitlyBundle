@@ -4,7 +4,7 @@ AvBitlyBundle
 This bundle permits to use the bitly api V3
 
 
-=Configuration
+# Configuration
 In your config.yml, add this parameters:
 
     av_bitly:
@@ -12,12 +12,12 @@ In your config.yml, add this parameters:
         bitly_api_address: '' #optional, default value = 'http://dev.bitly.com/links.html#v3_shorten'
         bitly_domain: yourdomain #optional, default value = ''
 
-=Usage
+# Usage
 
     $bitlyService = $this->get('av_bitly.bitly_service');
     //generate the bitly url
     $shortUrl = $bitlyService->shorten($route);
 
-=Fonctions
+# Fonctions
 The functions availables are:
    -shorten
