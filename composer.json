@@ -1,0 +1,22 @@
+{
+    "name": "appventus/avbitly-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony AvBitlyBundle",
+    "keywords": ["controller"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Beaujean (AppVentus)",
+            "email": "thomas@appventus.com",
+            "homepage": "http://appventus.com"
+        }
+    ],
+    "require-dev": {
+        "symfony/class-loader": "2.3.*"
+    },
+    "autoload": {
+        "psr-0": { "AppVentus\\AvBitlyBundle": "" }
+    },
+    "target-dir": "AppVentus/AvBitlyBundle",
+    "minimum-stability": "dev"
+}

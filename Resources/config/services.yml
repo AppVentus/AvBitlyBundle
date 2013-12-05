@@ -1,0 +1,4 @@
+services:
+  av_bitly.bitly_service:
+      class:  AppVentus\AvBitlyBundle\Service\BitlyService
+      arguments: ["%av_bitly.bitly_api_address%","%av_bitly.bitly_token%","%av_bitly.bitly_domain%"]
