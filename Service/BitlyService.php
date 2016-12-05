@@ -3,7 +3,7 @@
 namespace AppVentus\AvBitlyBundle\Service;
 
 /**
- * BitlyService
+ * BitlyService.
  *
  * Service for the Bitly API v3
  **/
@@ -14,7 +14,7 @@ class BitlyService
     private $domain = null;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param string $apiAdress   The bitly api address
      * @param string $bitlyToken  The bitly user token
@@ -28,7 +28,7 @@ class BitlyService
     }
 
     /**
-     * Shorten url
+     * Shorten url.
      *
      * @param string $longUrl
      * @param string $domain
@@ -40,7 +40,7 @@ class BitlyService
         $urlApi = $this->apiAdress;
         $urlAction = '/v3/shorten?';
         $urlToken = 'access_token='.$this->token;
-        $urlLongUrl= '&longUrl='.$longUrl;
+        $urlLongUrl = '&longUrl='.$longUrl;
 
         //domain is specified we use it
         if ($domain !== null) {
@@ -81,16 +81,17 @@ class BitlyService
     }
 
     /**
-     * Bitly get curl
+     * Bitly get curl.
      *
      * It uses curl in order to get the response of bitly
      *
      * @param string $uri
+     *
      * @return array
      */
     private function bitly_get_curl($uri)
     {
-        $output = "";
+        $output = '';
 
         $ch = curl_init($uri);
         curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -104,14 +105,15 @@ class BitlyService
         $outputObject = json_decode($output);
         // @codingStandardsIgnoreStart
         if ($outputObject->status_code === 500) {
-        	switch ($outputObject->status_txt) {
-        	    // @codingStandardsIgnoreStart
-        		case 'INVALID_ARG_ACCESS_TOKEN':
-        		    throw new \Exception('The token provided for the bitly API is not valid');
-        		default:
-        		    throw new \Exception('An error occured using the bitly api service');
-        	}
+            switch ($outputObject->status_txt) {
+                // @codingStandardsIgnoreStart
+                case 'INVALID_ARG_ACCESS_TOKEN':
+                    throw new \Exception('The token provided for the bitly API is not valid');
+                default:
+                    throw new \Exception('An error occured using the bitly api service');
+            }
         }
+
         return $outputObject;
     }
 }
